@@ -90,7 +90,7 @@
       @auth
         @if(Auth::user()->role ==='admin')
         <a href="{{route('admin.dashboard')}}" class="book-a-table-btn scrollto">admin Dashboard</a>
-        @elseif(Auth::user()->role ==='user' && Auth::user()->status === 'active')
+        @elseif(Auth::user()->role ==='user')
         <a href="{{route('dashboard')}}" class="book-a-table-btn scrollto">Dashboard</a>
         @endif
         @if(Auth::user()->status ==='inactive')

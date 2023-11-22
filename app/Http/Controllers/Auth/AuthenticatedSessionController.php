@@ -29,16 +29,11 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $url = '';
         $request->session()->regenerate();
-        // if (User::where('status','inactive')->where('role','user')) {
-        //     $url = "welcome";
-        // } elseif (Auth::user()->status === 'active') {
         if (Auth::user()->role === "admin") {
             $url = '/admin/dashboard';
         } else if (Auth::user()->role === "user") {
             $url = '/dashboard';
         }
-
-
         return redirect()->intended($url);
     }
 

@@ -19,6 +19,9 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/404', function () {
+    return view('404');
+})->name('404');
 
 
 Route::middleware('auth', 'verified', 'role:user', 'status:active')->group(function () {
