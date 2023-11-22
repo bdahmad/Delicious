@@ -152,6 +152,7 @@ h6 {
   letter-spacing: 1px;
   transition: 0.3s;
   white-space: nowrap;
+  border: none;
 }
 
 .book-a-table-btn:hover {

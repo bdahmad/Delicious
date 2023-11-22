@@ -88,13 +88,20 @@
 
       <a href="#book-a-table" class="book-a-table-btn scrollto">Book a table</a>
       @auth
-      @if(Auth::user()->role ==='admin')
-      <a href="{{route('admin.dashboard')}}" class="book-a-table-btn scrollto">admin Dashboard</a>
-      @elseif(Auth::user()->role ==='user' && Auth::user()->status === 'active')
-      <a href="{{route('dashboard')}}" class="book-a-table-btn scrollto">Dashboard</a>
-      @endif
-      @else
-      <a href="{{route('login')}}" class="book-a-table-btn scrollto">Login</a>
+        @if(Auth::user()->role ==='admin')
+        <a href="{{route('admin.dashboard')}}" class="book-a-table-btn scrollto">admin Dashboard</a>
+        @elseif(Auth::user()->role ==='user' && Auth::user()->status === 'active')
+        <a href="{{route('dashboard')}}" class="book-a-table-btn scrollto">Dashboard</a>
+        @endif
+        @if(Auth::user()->status ==='inactive')
+        <form action="{{route('logout')}}" method="post">
+          @csrf
+        <!-- <a href="{{route('logout')}}" class="book-a-table-btn scrollto">Logout</a> -->
+          <button type = "submit" class="book-a-table-btn scrollto">Logout</button>
+        </form>
+        @endif
+        @else
+        <a href="{{route('login')}}" class="book-a-table-btn scrollto">Login</a>
       @endauth
 
     </div>

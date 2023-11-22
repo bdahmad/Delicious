@@ -16,7 +16,7 @@ class Active
     public function handle(Request $request, Closure $next, $active): Response
     {
         if ($request->user()->status !== $active) {
-            return redirect()->back();
+            return redirect('/');
         }
         return $next($request);
     }
