@@ -20,7 +20,7 @@
                 <div class="col-md-3 top_right_menu text-end">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle top_right_btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{asset('admin')}}/images/avatar.png" class="img-fluid">
+                            <img src="{{asset('uploads/'.Auth::user()->photo)}}" class="img-fluid">
                             {{Auth::user()->name}}
                         </button>
                         <ul class="dropdown-menu">
