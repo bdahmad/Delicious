@@ -16,7 +16,7 @@ class Active
     public function handle(Request $request, Closure $next, $active): Response
     {
         if ($request->user()->status !== $active) {
-            return redirect()->route('404');
+            return redirect('404');
         }
         return $next($request);
     }

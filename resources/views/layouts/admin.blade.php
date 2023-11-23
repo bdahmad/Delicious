@@ -45,7 +45,7 @@
                     </div>
                     <div class="menu">
                         <ul>
-                            <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                            <li><a href="{{route('admin.dashboard')}}"><i class="fas fa-home"></i> Dashboard</a></li>
                             <li><a href="all-user.html"><i class="fas fa-user-circle"></i> Users</a></li>
                             <li><a href="#"><i class="fas fa-images"></i> Banner</a></li>
                             <li><a href="#"><i class="fas fa-comments"></i> Contact Message</a></li>
