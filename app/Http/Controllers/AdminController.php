@@ -10,6 +10,16 @@ class AdminController extends Controller
     public function index(){
         return view('admin.home.home');
     }
+    public function userIndex(){
+        return view('admin.user.all');
+    }
+    public function userAdd(){
+        return view('admin.user.add');
+    }
+
+
+
+
     public function adminLogout(Request $request){
         Auth::guard('web')->logout();
 
