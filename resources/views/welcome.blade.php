@@ -207,7 +207,7 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Whu Us Section ======= -->
+    <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
       <div class="container">
 
