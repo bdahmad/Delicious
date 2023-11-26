@@ -11,14 +11,18 @@ use App\Models\Social;
 class ManageController extends Controller
 {
     public function basicIndex(){
+        $all = Basic::where('basic_id',1)->firstOrFail();
+        return view('admin.basic.edit',compact('all'));
+    }
 
-        return view('admin.basic.all');
-    }
     public function contactIndex(){
-        return view('admin.contact.all');
+        $all = Contact::where('contact_id',1)->firstOrFail();
+        return view('admin.contact.edit',compact('all'));
     }
+
     public function socialIndex(){
-        return view('admin.social.all');
+        $all = Social::where('social_id',1)->firstOrFail();
+        return view('admin.social.edit',compact('all'));
     }
 
 }
