@@ -21,6 +21,7 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/user/add', 'userAdd')->name('user.add');
         Route::get('/admin/dashboard/user/view/{id}', 'userView')->name('user.view');
         Route::get('/admin/dashboard/user/edit/{id}', 'userEdit')->name('user.edit');
+        Route::get('/admin/dashboard/user/status/{id}', 'userStatus')->name('user.status');
         Route::post('/admin/dashboard/user/submit', 'userInsert')->name('user.submit');
         Route::get('logout', 'adminLogout')->name('admin.logout');
     });

@@ -47,10 +47,15 @@
                       <td>{{$data->username}}</td>
                       <td>{{$data->role}}</td>
                       <td class="text-success">{{$data->status}}</td>
+                      @php 
+                        $status = App\Models\User::firstOrFail();
+                        
+                      @endphp
                       @if($data->status === "active")
-                      <td><a href=""  class="btn btn-danger btn-sm" >Inactive</a> </td>
+                      <td><a href="{{route('user.status',$data->id)}}"  class="btn btn-danger btn-sm" >Inactive</a> 
+                      </td>
                       @else
-                      <td><a href=""  class="btn btn-success btn-sm" >Active</a> </td>
+                      <td><a href="{{route('user.status',$data->id)}}"  class="btn btn-success btn-sm" >Active</a> </td>
                       @endif
                       <td>
                         @if($data->photo)

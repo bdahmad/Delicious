@@ -16,7 +16,7 @@ class AdminController extends Controller
         return view('admin.home.home');
     }
     public function userIndex(){
-        $all = User::where('status','active')->get();
+        $all = User::get();
         return view('admin.user.all',compact('all'));
     }
     public function userAdd(){
@@ -49,6 +49,21 @@ class AdminController extends Controller
     public function userView($id){
         $all = User::where('status','active')->where('id',$id)->firstOrFail();
         return view('admin.user.view',compact('all'));
+    }
+    public function userStatus($id){
+        $status = User::where('id',$id)->firstOrFail();
+        if($status->status === 'active'){
+            User::where('id',$id)->update([
+                'status' => 'inactive',
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+        }else if($status->status === 'inactive'){
+            User::where('id',$id)->update([
+                'status' => 'active',
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+        }
+        return redirect()->back();
     }
     public function userEdit($id){
         return view('admin.user.edit');
