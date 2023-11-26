@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManageController;
 
 
 Route::get('/', function () {
@@ -24,6 +25,15 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/user/status/{id}', 'userStatus')->name('user.status');
         Route::post('/admin/dashboard/user/submit', 'userInsert')->name('user.submit');
         Route::get('logout', 'adminLogout')->name('admin.logout');
+    });
+
+    Route::controller(ManageController::class)->group(function(){
+        Route::get('/admin/dashboard/basic','basic')->name('basic');
+
+        Route::get('/admin/dashboard/contact','contact')->name('contact');
+
+        Route::get('/admin/dashboard/social','social')->name('social');
+        
     });
 });
 //user controller
