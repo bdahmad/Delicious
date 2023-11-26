@@ -126,6 +126,25 @@ body{
 	padding-left: 10px;
 	transition: all linear 0.5s; 
 }
+.menu ul li ul li a{
+   color: #ccc;
+	font-size: 14px;
+	font-weight: 500;
+	text-decoration: none;
+	line-height: 40px;
+	display: none;
+	border-bottom: 1px solid #17181F;
+	padding-left: 30px;
+	transition: all linear 0.5s; 
+}
+.menu ul li:hover ul li a{
+    display: block;
+    background-color: transparent;
+}
+.menu ul li ul li:hover a{
+    color: #85994d;
+    background-color: #920707;
+}
 
 .menu ul li:hover a{
     background-color: #4D6299;

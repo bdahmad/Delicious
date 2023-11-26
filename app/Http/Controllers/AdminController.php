@@ -46,6 +46,13 @@ class AdminController extends Controller
         }
     }
  
+    public function userView($id){
+        $all = User::where('status','active')->where('id',$id)->firstOrFail();
+        return view('admin.user.view',compact('all'));
+    }
+    public function userEdit($id){
+        return view('admin.user.edit');
+    }
     public function adminLogout(Request $request){
         Auth::guard('web')->logout();
 

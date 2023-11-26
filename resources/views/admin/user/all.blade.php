@@ -33,6 +33,7 @@
                       <th>Username</th>
                       <th>Role</th>
                       <th>Status</th>
+                      <th>Action</th>
                       <th>Photo</th>
                       <th>Manage</th>
                     </tr>
@@ -46,9 +47,14 @@
                       <td>{{$data->username}}</td>
                       <td>{{$data->role}}</td>
                       <td class="text-success">{{$data->status}}</td>
+                      @if($data->status === "active")
+                      <td><a href=""  class="btn btn-danger btn-sm" >Inactive</a> </td>
+                      @else
+                      <td><a href=""  class="btn btn-success btn-sm" >Active</a> </td>
+                      @endif
                       <td>
                         @if($data->photo)
-                          <img src="{{asset('uploads')/$data->photo}}" alt="">
+                          <img height="30px" src="{{asset('uploads/'.$data->photo)}}" alt="">
                           @else
                           <img height="30px" src="{{asset('admin')}}/images/avatar.png" alt="avatar" />
                         @endif
@@ -57,7 +63,7 @@
                           <div class="btn-group btn_group_manage" role="group">
                             <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="view-user.html">View</a></li>
+                              <li><a class="dropdown-item" href="{{route('user.view',$data->id)}}">View</a></li>
                               <li><a class="dropdown-item" href="edit-user.html">Edit</a></li>
                               <li><a class="dropdown-item" href="#">Delete</a></li>
                             </ul>
