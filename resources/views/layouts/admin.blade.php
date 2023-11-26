@@ -50,9 +50,9 @@
                             <li>
                                 <a href="{{route('admin.user')}}"><i class="fas fa-user-circle"></i> Manage</a>
                                 <ul>
-                                    <li><a href="#">Basic</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Social Media</a></li>
+                                    <li><a href="{{route('basic')}}">Basic</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li><a href="{{route('social')}}">Social Media</a></li>
                                 </ul>
                             </li>
                             <li><a href="#"><i class="fas fa-images"></i> Banner</a></li>

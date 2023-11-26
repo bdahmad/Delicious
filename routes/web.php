@@ -28,12 +28,12 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
     });
 
     Route::controller(ManageController::class)->group(function(){
-        Route::get('/admin/dashboard/basic','basic')->name('basic');
+        Route::get('/admin/dashboard/basic','basicIndex')->name('basic');
 
-        Route::get('/admin/dashboard/contact','contact')->name('contact');
+        Route::get('/admin/dashboard/contact','contactIndex')->name('contact');
 
-        Route::get('/admin/dashboard/social','social')->name('social');
-        
+        Route::get('/admin/dashboard/social','socialIndex')->name('social');
+
     });
 });
 //user controller
