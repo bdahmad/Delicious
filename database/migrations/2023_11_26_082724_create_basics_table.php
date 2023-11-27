@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('basic_logo',50)->nullable();
             $table->string('basic_footer_logo',50)->nullable();
             $table->string('basic_favicon',50)->nullable();
+            $table->string('basic_open_hour',50)->nullable();
             $table->timestamps();
         });
     }

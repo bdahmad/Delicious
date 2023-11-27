@@ -29,10 +29,13 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
 
     Route::controller(ManageController::class)->group(function(){
         Route::get('/admin/dashboard/basic','basicIndex')->name('basic');
+        Route::post('/admin/dashboard/basic/update','basicUpdate')->name('basic.update');
 
         Route::get('/admin/dashboard/contact','contactIndex')->name('contact');
+        Route::post('/admin/dashboard/contact/update','contactUpdate')->name('contact.update');
 
         Route::get('/admin/dashboard/social','socialIndex')->name('social');
+        Route::post('/admin/dashboard/social/update','socialUpdate')->name('social.update');
 
     });
 });
