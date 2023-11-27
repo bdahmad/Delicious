@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Delicious Bootstrap Template - Index</title>
+  <title>Delicious | Home</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('frontend')}}/assets/css/style.css" rel="stylesheet">
+  <link href="{{asset('frontend')}}/assets/css/font.awesome.all.min.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Delicious - v4.10.0
@@ -37,11 +38,16 @@
 
 <body>
 
+  @php 
+    $contact = App\Models\Contact::where('contact_id',1)->firstOrFail();
+    $basic =  App\Models\Basic::where('basic_id',1)->firstOrFail();
+    $social =  App\Models\Social::where('social_id',1)->firstOrFail();
+  @endphp 
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-      <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
-      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+      <i class="bi bi-phone d-flex align-items-center"><span>+88 {{$contact->contact_phone1}}</span></i>
+      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>{{$basic->basic_open_hour}}</span></i>
     </div>
   </section>
 
@@ -861,25 +867,25 @@
             <div class="col-lg-3 col-md-6 info">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
-              <p>A108 Adam Street<br>New York, NY 535022</p>
+              <p>{{$contact->contact_address1}}</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-clock"></i>
               <h4>Open Hours:</h4>
-              <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
+              <p>{{$basic->basic_open_hour}}</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
-              <p>info@example.com<br>contact@example.com</p>
+              <p>{{$contact->contact_email1}}<br>{{$contact->contact_email2}}</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
-              <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
+              <p>+88 {{$contact->contact_phone2}}<br>+88 {{$contact->contact_phone3}}</p>
             </div>
           </div>
         </div>
@@ -918,21 +924,14 @@
       <h3>Delicious</h3>
       <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="{{$social->social_twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="{{$social->social_facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="{{$social->social_instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="{{$social->social_wechat}}" class="google-plus"><i class="fab fa-weixin"></i></a>
+        <a href="{{$social->social_linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
         &copy; Copyright <strong><span>Delicious</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -948,6 +947,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('frontend')}}/assets/js/main.js"></script>
+  <script src="{{asset('frontend')}}/assets/js/font.awesome.all.min.js"></script>
 
 </body>
 
