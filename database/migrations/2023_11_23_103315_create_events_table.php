@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('event_id');
+            $table->string('event_title',20)->nullable();
+            $table->string('event_image',50)->nullable();
             $table->integer('event_price')->nullable();
             $table->string('event_description1')->nullable();
             $table->string('event_offer1')->nullable();

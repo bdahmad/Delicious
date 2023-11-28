@@ -56,6 +56,7 @@
                                 </ul>
                             </li>
                             <li><a href="{{route('book')}}"><i class="fas fa-images"></i> Book Table</a></li>
+                            <li><a href="#"><i class="fas fa-images"></i> Event</a></li>
                             <li><a href="#"><i class="fas fa-images"></i> Banner</a></li>
                             <li><a href="#"><i class="fas fa-comments"></i> Contact Message</a></li>
                             <li><a href="{{route('front')}}"><i class="fas fa-globe"></i> Live Site</a></li>
@@ -83,18 +84,7 @@
     <script src="{{asset('admin')}}/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('admin')}}/js/custom.js"></script>
     <script src="{{asset('admin')}}/js/jquery-3.6.0.min.js"></script>
-    <script>
-        jQuery(document).ready(function() {
-            jQuery('#image').change(function(e) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    jQuery('#showImg').attr('src', e.target.result);
-
-                }
-                reader.readAsDataURL(e.target.files['0']);
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

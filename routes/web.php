@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\EventController;
 
 
 Route::get('/', function () {
@@ -42,6 +43,9 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
     Route::controller(BookController::class)->group(function(){
         Route::get('/admin/dashboard/book','index')->name('book');
         Route::post('/admin/dashboard/book/submit','insert')->name('book.insert');
+    });
+    Route::controller(EventController::class)->group(function(){
+        Route::get('/admin/dashboard/event','index')->name('event');
     });
 });
 //user controller
