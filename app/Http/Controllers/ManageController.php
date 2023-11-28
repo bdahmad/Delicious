@@ -75,6 +75,28 @@ class ManageController extends Controller
         $all = Contact::where('contact_id',1)->firstOrFail();
         return view('admin.contact.edit',compact('all'));
     }
+    public function contactUpdate(Request $request){
+        $update= Contact::where('contact_id',1)->update([
+            'contact_phone1' => $request->contact_phone1,
+            'contact_phone2' => $request->contact_phone2,
+            'contact_phone3' => $request->contact_phone3,
+            'contact_phone4' => $request->contact_phone4,
+            'contact_email1' => $request->contact_email1,
+            'contact_email2' => $request->contact_email2,
+            'contact_email3' => $request->contact_email3,
+            'contact_email4' => $request->contact_email4,
+            'contact_address1' => $request->contact_address1,
+            'contact_address2' => $request->contact_address2,
+            'contact_address3' => $request->contact_address3,
+            'contact_address4' => $request->contact_address4,
+            'updated_at' => Carbon::now()->toDateTimeString(),
+        ]);
+        if($update){
+            return redirect()->back();
+        }
+    }
+
+
 
     public function socialIndex(){
         $all = Social::where('social_id',1)->firstOrFail();

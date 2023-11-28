@@ -13,7 +13,8 @@
 </div>
 <div class="row">
   <div class="col-md-12 ">
-      <form method="" action="">
+      <form method="post" action="{{route('contact.update')}}">
+        @csrf 
           <div class="card mb-3">
             <div class="card-header">
               <div class="row">
@@ -29,73 +30,73 @@
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Phone No-1: </label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_phone1}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_phone1" value="{{$all->contact_phone1}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Phone No-2:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_phone2}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_phone2" value="{{$all->contact_phone2}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Phone No-3:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_phone3}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_phone3" value="{{$all->contact_phone3}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Phone No-4:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_phone4}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_phone4" value="{{$all->contact_phone4}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Email Address-1:</label>
                   <div class="col-sm-7">
-                    <input type="email" class="form-control form_control" id="" name="" value="{{$all->contact_email1}}">
+                    <input type="email" class="form-control form_control" id="" name="contact_email1" value="{{$all->contact_email1}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Email Address-2:</label>
                   <div class="col-sm-7">
-                    <input type="email" class="form-control form_control" id="" name="" value="{{$all->contact_email2}}">
+                    <input type="email" class="form-control form_control" id="" name="contact_email2" value="{{$all->contact_email2}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Email Address-3:</label>
                   <div class="col-sm-7">
-                    <input type="email" class="form-control form_control" id="" name="" value="{{$all->contact_email3}}">
+                    <input type="email" class="form-control form_control" id="" name="contact_email3" value="{{$all->contact_email3}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Email Address-4:</label>
                   <div class="col-sm-7">
-                    <input type="email" class="form-control form_control" id="" name="" value="{{$all->contact_email4}}">
+                    <input type="email" class="form-control form_control" id="" name="contact_email4" value="{{$all->contact_email4}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Address-1:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_address1}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_address1" value="{{$all->contact_address1}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Address-2:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_address2}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_address2" value="{{$all->contact_address2}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Address-3:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_address3}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_address3" value="{{$all->contact_address3}}">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label col_form_label">Address-4:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->contact_address4}}">
+                    <input type="text" class="form-control form_control" id="" name="contact_address4" value="{{$all->contact_address4}}">
                   </div>
                 </div>
               </div>
