@@ -80,5 +80,23 @@ class ManageController extends Controller
         $all = Social::where('social_id',1)->firstOrFail();
         return view('admin.social.edit',compact('all'));
     }
+    public function socialUpdate(Request $request){
+        $update = Social::where('social_id',1)->update([
+            'social_facebook'=> $request->social_facebook ,
+            'social_linkedin'=> $request->social_linkedin ,
+            'social_instagram'=> $request->social_instagram ,
+            'social_twitter'=> $request->social_twitter ,
+            'social_wechat'=> $request->social_wechat ,
+            'social_whatsapp'=> $request->social_whatsapp ,
+            'social_discord'=> $request->social_discord ,
+            'social_telegram'=> $request->social_telegram ,
+            'social_github'=> $request->social_github ,
+            'social_reddit'=> $request->social_reddit ,
+            'updated_at' => Carbon::now()->toDateTimeString(),
+        ]);
+        if($update){
+            return redirect()->back();
+        }
+    }
 
 }

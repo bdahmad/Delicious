@@ -13,7 +13,8 @@
 </div>
 <div class="row">
     <div class="col-md-12 ">
-        <form method="" action="">
+        <form method="post" action="{{route('social.update')}}">
+          @csrf
             <div class="card mb-3">
               <div class="card-header">
                 <div class="row">
@@ -29,61 +30,61 @@
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Facebook:</label>
                     <div class="col-sm-7">
-                    <input type="text" class="form-control form_control" id="" name="" value="{{$all->social_facebook}}">
+                    <input type="text" class="form-control form_control" id="" name="social_facebook" value="{{$all->social_facebook}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">LinkedIn:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control form_control" id="" name="" value="{{$all->social_linkedin}}">
+                      <input type="text" class="form-control form_control" id="" name="social_linkedin" value="{{$all->social_linkedin}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Instagram:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control form_control" id="" name="" value="{{$all->social_instagram}}">
+                      <input type="text" class="form-control form_control" id="" name="social_instagram" value="{{$all->social_instagram}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Twitter:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control form_control" id="" name="" value="{{$all->social_twitter}}">
+                      <input type="text" class="form-control form_control" id="" name="social_twitter" value="{{$all->social_twitter}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">WeChat:</label>
                     <div class="col-sm-7">
-                      <input type="email" class="form-control form_control" id="" name="" value="{{$all->social_wechat}}">
+                      <input type="text" class="form-control form_control" id="" name="social_wechat" value="{{$all->social_wechat}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">What's App:</label>
                     <div class="col-sm-7">
-                      <input type="email" class="form-control form_control" id="" name="" value="{{$all->social_whatsapp}}">
+                      <input type="text" class="form-control form_control" id="" name="social_whatsapp" value="{{$all->social_whatsapp}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Discord:</label>
                     <div class="col-sm-7">
-                      <input type="email" class="form-control form_control" id="" name="" value="{{$all->social_discord}}">
+                      <input type="text" class="form-control form_control" id="" name="social_discord" value="{{$all->social_discord}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Telegram:</label>
                     <div class="col-sm-7">
-                      <input type="email" class="form-control form_control" id="" name="" value="{{$all->social_telegram}}">
+                      <input type="text" class="form-control form_control" id="" name="social_telegram" value="{{$all->social_telegram}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Github:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control form_control" id="" name="" value="{{$all->social_github}}">
+                      <input type="text" class="form-control form_control" id="" name="social_github" value="{{$all->social_github}}">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Reddit:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control form_control" id="" name="" value="{{$all->social_reddit}}">
+                      <input type="text" class="form-control form_control" id="" name="social_reddit" value="{{$all->social_reddit}}">
                     </div>
                   </div>
                 </div>
