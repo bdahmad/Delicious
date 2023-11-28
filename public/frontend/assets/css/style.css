@@ -1184,7 +1184,7 @@ section {
   padding: 10px 12px;
 }
 
-.book-a-table .php-email-form button[type=submit] {
+.book-a-table .php-email-form {
   background: #ffb03b;
   border: 0;
   padding: 10px 24px;
@@ -1192,7 +1192,15 @@ section {
   transition: 0.4s;
   border-radius: 50px;
 }
-
+.bton button{
+    background: #ffb03b;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    margin-top: 10px;
+}
 .book-a-table .php-email-form button[type=submit]:hover {
   background: #ffa012;
 }

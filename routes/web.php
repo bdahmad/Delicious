@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManageController;
+use App\Http\Controllers\BookController;
 
 
 Route::get('/', function () {
@@ -37,6 +38,10 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/social','socialIndex')->name('social');
         Route::post('/admin/dashboard/social/update','socialUpdate')->name('social.update');
 
+    });
+    Route::controller(BookController::class)->group(function(){
+        Route::get('/admin/dashboard/book','index')->name('book');
+        Route::post('/admin/dashboard/book/submit','insert')->name('book.insert');
     });
 });
 //user controller

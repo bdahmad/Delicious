@@ -55,6 +55,7 @@
                                     <li><a href="{{route('social')}}">Social Media</a></li>
                                 </ul>
                             </li>
+                            <li><a href="{{route('book')}}"><i class="fas fa-images"></i> Book Table</a></li>
                             <li><a href="#"><i class="fas fa-images"></i> Banner</a></li>
                             <li><a href="#"><i class="fas fa-comments"></i> Contact Message</a></li>
                             <li><a href="{{route('front')}}"><i class="fas fa-globe"></i> Live Site</a></li>

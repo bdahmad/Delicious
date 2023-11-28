@@ -566,43 +566,46 @@
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
 
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+        <form action="{{route('book.insert')}}" method="post" role="form">
+          @csrf
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+              <input type="text" name="book_name" class="form-control"  value="{{old('book_name')}}" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
+              <input type="email" class="form-control" name="book_email"  value="{{old('book_email')}}" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+            
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+              <input type="text" class="form-control" name="book_phone" value="{{old('book_phone')}}" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+             
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+              <input type="text" name="book_date" class="form-control" value="{{old('book_date')}}"  placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+             
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+              <input type="text" class="form-control" name="book_time" value="{{old('book_time')}}"  placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+             
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              <div class="validate"></div>
+              <input type="number" class="form-control" name="book_people" value="{{old('book_people')}}"  placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+        
             </div>
           </div>
           <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-            <div class="validate"></div>
+            <textarea class="form-control" name="book_message" rows="5" placeholder="Message" value="{{old('book_message')}}"></textarea>
+            
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+          </div> -->
+          <div class="text-center bton">
+            <button type="submit" >Send Message</button>
           </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
         </form>
 
       </div>
@@ -890,7 +893,7 @@
           </div>
         </div>
 
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form action="forms/contact.php" method="post" role="form" >
           <div class="row">
             <div class="col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -905,12 +908,7 @@
           <div class="form-group mt-3">
             <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
           </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
+          <div class="text-center bton"><button type="submit">Send Message</button></div>
         </form>
 
       </div>
