@@ -8,6 +8,7 @@ use App\Models\Basic;
 use App\Models\Contact;
 use App\Models\Social;
 use Carbon\Carbon;
+use File;
 
 
 class ManageController extends Controller
@@ -16,22 +17,33 @@ class ManageController extends Controller
         $all = Basic::where('basic_id',1)->firstOrFail();
         return view('admin.basic.edit',compact('all'));
     }
+
     public function basicUpdate(Request $request){
         $company = $request->basic_company_name;
         $title = $request->basic_title;
-        if($request->hasFile('basic_logo')){
-            $logoImg = $request->file('basic_logo');
-            $logoName = "logo_".time().'.'.$logoImg->getClientOriginalExtension();
-            Image::make($logoImg)->resize(120,120)->save('uploads/manage/'.$logoName);
+        // dd($request->basic_logo);
+        // if($request->hasFile('basic_logo')){
+        //     $logoImg = $request->file('basic_logo');
+        //     $logoName = "logo_".time().'.'.$logoImg->getClientOriginalExtension();
+        //     Image::make($logoImg)->resize(120,120)->save('uploads/manage/'.$logoName);
+        if ($request->hasFile('basic_logo')) {
+           
+            $image = $request->file('basic_logo');
+            $imageName = 'logo_' . time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(200, 200)->save('uploads/manage/' . $imageName);
         }
         if($request->hasFile('basic_footer_logo')){
+            
             $flogoImg = $request->file('basic_footer_logo');
             $flogoName = "f_logo_".time().'.'.$flogoImg->getClientOriginalExtension();
+            
             Image::make($flogoImg)->resize(120,120)->save('uploads/manage/'.$flogoName);
         }
         if($request->hasFile('basic_favicon')){
+            
             $favImg = $request->file('basic_favicon');
             $favName = "fav_".time().'.'.$favImg->getClientOriginalExtension();
+            
             Image::make($favImg)->resize(120,120)->save('uploads/manage/'.$favName);
         }
         $barStart = $request->bar_start;
@@ -41,12 +53,13 @@ class ManageController extends Controller
         $timeEnd = $request->time_end;
         $open_hour = $barStart.' - '.$barEnd.' : '.$timeStart.' - '.$timeEnd;
 
+       
         $update = Basic::where('basic_id',1)->update([
             'basic_company_name' => $company,
             'basic_title' => $title,
-            'basic_logo' => $logoName,
-            'basic_footer_logo' => $flogoName,
-            'basic_favicon' => $favName,
+            // 'basic_logo' => $imageName,
+            // 'basic_footer_logo' => $flogoName,
+            // 'basic_favicon' => $favName,
             'basic_open_hour' => $open_hour,
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);

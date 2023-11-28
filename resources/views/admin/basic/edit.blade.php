@@ -13,7 +13,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 ">
-        <form method="post" action="{{route('basic.update')}}" enctype = "multipart/data-form">
+        <form method="post" action="{{route('basic.update')}}" enctype="multipart/form-data">
           @csrf
             <div class="card mb-3">
               <div class="card-header">
@@ -42,7 +42,8 @@
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Logo:</label>
                     <div class="col-sm-4">
-                      <input type="file" class="form-control form_control" onchange="document.getElementById('logo').src = window.URL.createObjectURL(this.files[0])" name="basic_logo">
+                      <!-- onchange="document.getElementById('logo').src = window.URL.createObjectURL(this.files[0])" -->
+                      <input type="file" class="form-control form_control"  name="basic_logo">
                     </div>
                     <div class="col-sm-3">
                       @if($all->basic_logo)
@@ -55,7 +56,9 @@
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Footer Logo:</label>
                     <div class="col-sm-4">
-                      <input type="file" class="form-control form_control" onchange="document.getElementById('footer').src = window.URL.createObjectURL(this.files[0])" name="basic_footer_logo">
+                      <!-- onchange="document.getElementById('footer').src = window.URL.createObjectURL(this.files[0])" -->
+                      <input type="file" class="form-control form_control"  name="basic_footer_logo">
+                   
                     </div>
                     <div class="col-sm-3">
                       @if($all->basic_footer_logo)
@@ -68,7 +71,8 @@
                   <div class="row mb-3">
                     <label class="col-sm-3 col-form-label col_form_label">Favicon:</label>
                     <div class="col-sm-4">
-                      <input type="file" class="form-control form_control" onchange="document.getElementById('fav').src = window.URL.createObjectURL(this.files[0])" name="basic_favicon">
+                       <!-- onchange="document.getElementById('fav').src = window.URL.createObjectURL(this.files[0])" -->
+                      <input type="file" class="form-control form_control" name="basic_favicon">
                     </div>
                     <div class="col-sm-3">
                       @if($all->basic_favicon)
