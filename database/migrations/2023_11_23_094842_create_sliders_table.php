@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->bigIncrements('slider_id');
-            $table->string('slider_name')->unique();
             $table->string('slider_title')->unique();
+            $table->string('slider_description')->unique();
             $table->string('slider_image')->nullable();
             $table->integer('slider_status')->default(1);
             $table->integer('slider_creator')->nullable();

@@ -8,6 +8,7 @@ use App\Http\Controllers\ManageController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\SliderController;
 
 
 Route::get('/', function () {
@@ -54,6 +55,11 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/gallery','index')->name('gallery');
         Route::get('/admin/dashboard/gallery/add','add')->name('gallery.add');
         Route::post('/admin/dashboard/gallery/add/submit','insert')->name('gallery.insert');
+    });
+    Route::controller(SliderController::class)->group(function(){
+        Route::get('/admin/dashboard/slider','index')->name('slider');
+        Route::get('/admin/dashboard/slider/add','add')->name('slider.add');
+        Route::post('/admin/dashboard/slider/add/submit','insert')->name('slider.insert');
     });
 });
 //user controller
