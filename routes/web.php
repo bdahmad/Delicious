@@ -9,6 +9,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\WhyUsController;
 
 
 Route::get('/', function () {
@@ -60,6 +61,11 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/slider','index')->name('slider');
         Route::get('/admin/dashboard/slider/add','add')->name('slider.add');
         Route::post('/admin/dashboard/slider/add/submit','insert')->name('slider.insert');
+    });
+    Route::controller(WhyUsController::class)->group(function(){
+        Route::get('/admin/dashboard/whyus','index')->name('why');
+        Route::get('/admin/dashboard/whyus/add','add')->name('why.add');
+        Route::post('/admin/dashboard/whyus/add/submit','insert')->name('why.insert');
     });
 });
 //user controller
