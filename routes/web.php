@@ -46,6 +46,8 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
     });
     Route::controller(EventController::class)->group(function(){
         Route::get('/admin/dashboard/event','index')->name('event');
+        Route::get('/admin/dashboard/event/add','add')->name('event.add');
+        Route::post('/admin/dashboard/event/add/submit','insert')->name('event.insert');
     });
 });
 //user controller

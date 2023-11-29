@@ -95,7 +95,7 @@
       <a href="#book-a-table" class="book-a-table-btn scrollto">Book a table</a>
       @auth
       @if(Auth::user()->role ==='admin')
-      <a href="{{route('admin.dashboard')}}" class="book-a-table-btn scrollto">admin Dashboard</a>
+      <a href="{{route('admin.dashboard')}}" class="book-a-table-btn scrollto">{{Auth::user()->name}}</a>
       @elseif(Auth::user()->role ==='user')
       <a href="{{route('dashboard')}}" class="book-a-table-btn scrollto">Dashboard</a>
       @endif
@@ -461,6 +461,9 @@
     <!-- ======= Events Section ======= -->
     <section id="events" class="events">
       <div class="container">
+        @php 
+          $event = App\Models\Event::where('event_status',1)->get();
+        @endphp
 
         <div class="section-title">
           <h2>Organize Your <span>Events</span> in our Restaurant</h2>
@@ -469,86 +472,32 @@
         <div class="events-slider swiper">
           <div class="swiper-wrapper">
 
+            @foreach($event as $data)
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="{{asset('frontend')}}/assets/img/event-birthday.jpg" class="img-fluid" alt="">
+                  <img src="{{asset('uploads/event/'.$data->event_image)}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Birthday Parties</h3>
+                  <h3>{{$data->event_title}}</h3>
                   <div class="price">
-                    <p><span>$189</span></p>
+                    <p><span>${{$data->event_price}}</span></p>
                   </div>
                   <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    {{$data->event_description1}}
                   </p>
                   <ul>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circle"></i>{{$data->event_offer1}}</li>
+                    <li><i class="bi bi-check-circle"></i> {{$data->event_offer2}}</li>
+                    <li><i class="bi bi-check-circle"></i> {{$data->event_offer3}}</li>
                   </ul>
                   <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
+                    {{$data->event_description2}}
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="row event-item">
-                <div class="col-lg-6">
-                  <img src="{{asset('frontend')}}/assets/img/event-private.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Private Parties</h3>
-                  <div class="price">
-                    <p><span>$290</span></p>
-                  </div>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <ul>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  </ul>
-                  <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="row event-item">
-                <div class="col-lg-6">
-                  <img src="{{asset('frontend')}}/assets/img/event-custom.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Custom Parties</h3>
-                  <div class="price">
-                    <p><span>$99</span></p>
-                  </div>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <ul>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  </ul>
-                  <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
+            @endforeach
 
           </div>
           <div class="swiper-pagination"></div>

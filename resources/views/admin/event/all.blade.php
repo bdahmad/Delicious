@@ -4,8 +4,8 @@
         <div class="col-md-12 breadcumb_part">
             <div class="bread">
                 <ul>
-                    <li><a href=""><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href=""><i class="fas fa-angle-double-right"></i>Dashboard</a></li>                             
+                    <li><a href="{{route('admin.dashboard')}}"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href=""><i class="fas fa-angle-double-right"></i>Event</a></li>                             
                 </ul>
             </div>
         </div>
@@ -16,10 +16,10 @@
               <div class="card-header">
                 <div class="row">
                     <div class="col-md-8 card_title_part">
-                        <i class="fab fa-gg-circle"></i>All User Information
+                        <i class="fab fa-gg-circle"></i>All Event Information
                     </div>  
                     <div class="col-md-4 card_button_part">
-                        <a href="{{route('user.add')}}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i>Add User</a>
+                        <a href="{{route('event.add')}}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i>Add Event</a>
                     </div>  
                 </div>
               </div>
@@ -27,13 +27,13 @@
                 <table class="table table-bordered table-striped table-hover custom_table">
                   <thead class="table-dark">
                     <tr>
-                      <th>Name</th>
-                      <th>Phone</th>
-                      <th>Email</th>
-                      <th>Username</th>
-                      <th>Role</th>
-                      <th>Status</th>
-                      <th>Action</th>
+                      <th>Title</th>
+                      <th>Price</th>
+                      <th>Description 1</th>
+                      <th>Offer 1</th>
+                      <th>Offer 2</th>
+                      <th>Offer 3</th>
+                      <th>Description 2</th>
                       <th>Photo</th>
                       <th>Manage</th>
                     </tr>
@@ -41,25 +41,16 @@
                   <tbody>
                     @foreach($all as $data)
                     <tr>
-                      <td>{{$data->name}}</td>
-                      <td>{{$data->phone}}</td>
-                      <td>{{$data->email}}</td>
-                      <td>{{$data->username}}</td>
-                      <td>{{$data->role}}</td>
-                      <td class="text-success">{{$data->status}}</td>
-                      @php 
-                        $status = App\Models\User::firstOrFail();
-                        
-                      @endphp
-                      @if($data->status === "active")
-                      <td><a href="{{route('user.status',$data->id)}}"  class="btn btn-danger btn-sm" >Inactive</a> 
-                      </td>
-                      @else
-                      <td><a href="{{route('user.status',$data->id)}}"  class="btn btn-success btn-sm" >Active</a> </td>
-                      @endif
+                      <td>{{$data->event_title}}</td>
+                      <td>{{$data->event_price}}</td>
+                      <td>{{$data->event_description1}}</td>
+                      <td>{{$data->event_offer1}}</td>
+                      <td>{{$data->event_offer2}}</td>
+                      <td>{{$data->event_offer3}}</td>
+                      <td>{{$data->event_description2}}</td>
                       <td>
-                        @if($data->photo)
-                          <img height="30px" src="{{asset('uploads/'.$data->photo)}}" alt="">
+                        @if($data->event_image)
+                          <img height="30px" src="{{asset('uploads/event/'.$data->event_image)}}" alt="">
                           @else
                           <img height="30px" src="{{asset('admin')}}/images/avatar.png" alt="avatar" />
                         @endif
@@ -68,7 +59,7 @@
                           <div class="btn-group btn_group_manage" role="group">
                             <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{{route('user.view',$data->id)}}">View</a></li>
+                              <li><a class="dropdown-item" href="{{route('user.view',$data->event_id)}}">View</a></li>
                               <li><a class="dropdown-item" href="edit-user.html">Edit</a></li>
                               <li><a class="dropdown-item" href="#">Delete</a></li>
                             </ul>
