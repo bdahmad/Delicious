@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\GalleryController;
 
 
 Route::get('/', function () {
@@ -48,6 +49,11 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/event','index')->name('event');
         Route::get('/admin/dashboard/event/add','add')->name('event.add');
         Route::post('/admin/dashboard/event/add/submit','insert')->name('event.insert');
+    });
+    Route::controller(GalleryController::class)->group(function(){
+        Route::get('/admin/dashboard/gallery','index')->name('gallery');
+        Route::get('/admin/dashboard/gallery/add','add')->name('gallery.add');
+        Route::post('/admin/dashboard/gallery/add/submit','insert')->name('gallery.insert');
     });
 });
 //user controller
