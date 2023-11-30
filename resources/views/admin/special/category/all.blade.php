@@ -5,7 +5,8 @@
             <div class="bread">
                 <ul>
                     <li><a href="{{route('admin.dashboard')}}"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href=""><i class="fas fa-angle-double-right"></i>WhyUs</a></li>                         
+                    <li><a href="#"><i class="fas fa-angle-double-right"></i>Special</a></li>                         
+                    <li><a href=""><i class="fas fa-angle-double-right"></i>Category</a></li>                         
                 </ul>
             </div>
         </div>
@@ -16,10 +17,10 @@
               <div class="card-header">
                 <div class="row">
                     <div class="col-md-8 card_title_part">
-                        <i class="fab fa-gg-circle"></i>All Why Us Information
+                        <i class="fab fa-gg-circle"></i>All Special Category Information
                     </div>  
                     <div class="col-md-4 card_button_part">
-                        <a href="{{route('why.add')}}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i>Add Why</a>
+                        <a href="{{route('special.category.add')}}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i>Add Category</a>
                     </div>  
                 </div>
               </div>
@@ -27,16 +28,14 @@
                 <table class="table table-bordered table-striped table-hover custom_table">
                   <thead class="table-dark">
                     <tr>
-                      <th>Title</th>
-                      <th>Description</th>
+                      <th>Name</th>
                       <th>Manage</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($all as $data)
                     <tr>
-                      <td>{{$data->why_title}}</td>
-                      <td>{{$data->why_description}}</td>
+                      <td>{{$data->special_category_name}}</td>
                       <td>
                           <div class="btn-group btn_group_manage" role="group">
                             <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>

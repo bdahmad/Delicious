@@ -12,6 +12,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\WhyUsController;
 use App\Http\Controllers\MenuCategoryController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\SpecialCategoryController;
 
 
 Route::get('/', function () {
@@ -77,6 +78,11 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/menu','index')->name('menu');
         Route::get('/admin/dashboard/menu/add','add')->name('menu.add');
         Route::post('/admin/dashboard/menu/add/submit','insert')->name('menu.insert');
+    });
+    Route::controller(SpecialCategoryController::class)->group(function(){
+        Route::get('/admin/deshboard/special/category','index')->name('special.category');
+        Route::get('/admin/deshboard/special/add','add')->name('special.category.add');
+        Route::post('/admin/deshboard/special/add/submit','insert')->name('special.category.insert');
     });
 
 });

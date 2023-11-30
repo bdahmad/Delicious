@@ -62,6 +62,13 @@
                                     <li><a href="{{route('menu.category')}}">Category</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#"><i class="fas fa-user-circle"></i> Special</a>
+                                <ul>
+                                    <li><a href="#">Special</a></li>
+                                    <li><a href="{{route('special.category')}}">Category</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{route('book')}}"><i class="fas fa-images"></i> Book Table</a></li>
                             <li><a href="{{route('event')}}"><i class="fas fa-images"></i> Event</a></li>
                             <li><a href="{{route('gallery')}}"><i class="fas fa-images"></i> Gallery</a></li>
