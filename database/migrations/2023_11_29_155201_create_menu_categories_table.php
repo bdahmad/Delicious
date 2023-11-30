@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menu_categories', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('menu_category_id');
+            $table->string('menu_category_name')->nullable();
+            $table->string('menu_category_slug')->nullable();
+            $table->integer('menu_category_creator')->nullable();
+            $table->integer('menu_category_editor')->nullable();
+            $table->integer('menu_category_status')->default(1);
             $table->timestamps();
         });
     }

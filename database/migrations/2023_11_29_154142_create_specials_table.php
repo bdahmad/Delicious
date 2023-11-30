@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('specials', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('special_id');
+            $table->string('special_name')->nullable();
+            $table->string('special_details')->nullable();
+            $table->string('special_image')->nullable();
+            $table->integer('special_creator')->nullable();
+            $table->integer('special_editor')->nullable();
+            $table->integer('special_status')->default(1);
             $table->timestamps();
         });
     }

@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('special_categories', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('special_category_id');
+            $table->string('special_category_name')->nullable();
+            $table->integer('special_category_creator')->nullable();
+            $table->integer('special_category_editor')->nullable();
+            $table->integer('special_category_status')->default(1);
             $table->timestamps();
         });
     }
