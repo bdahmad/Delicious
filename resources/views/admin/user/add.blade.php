@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 ">
-            <form method="post" action="{{route('user.submit')}}" enctype="multipart/data-form">
+            <form method="post" action="{{route('user.submit')}}" enctype="multipart/form-data">
               @csrf
                 <div class="card mb-3">
                   <div class="card-header">

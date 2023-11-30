@@ -21,11 +21,6 @@ class ManageController extends Controller
     public function basicUpdate(Request $request){
         $company = $request->basic_company_name;
         $title = $request->basic_title;
-        // dd($request->basic_logo);
-        // if($request->hasFile('basic_logo')){
-        //     $logoImg = $request->file('basic_logo');
-        //     $logoName = "logo_".time().'.'.$logoImg->getClientOriginalExtension();
-        //     Image::make($logoImg)->resize(120,120)->save('uploads/manage/'.$logoName);
         if ($request->hasFile('basic_logo')) {
            
             $image = $request->file('basic_logo');
@@ -57,9 +52,9 @@ class ManageController extends Controller
         $update = Basic::where('basic_id',1)->update([
             'basic_company_name' => $company,
             'basic_title' => $title,
-            // 'basic_logo' => $imageName,
-            // 'basic_footer_logo' => $flogoName,
-            // 'basic_favicon' => $favName,
+            'basic_logo' => $imageName,
+            'basic_footer_logo' => $flogoName,
+            'basic_favicon' => $favName,
             'basic_open_hour' => $open_hour,
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);
