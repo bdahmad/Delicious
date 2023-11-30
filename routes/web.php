@@ -11,6 +11,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\WhyUsController;
 use App\Http\Controllers\MenuCategoryController;
+use App\Http\Controllers\MenuController;
 
 
 Route::get('/', function () {
@@ -32,7 +33,6 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::post('/admin/dashboard/user/submit', 'userInsert')->name('user.submit');
         Route::get('logout', 'adminLogout')->name('admin.logout');
     });
-
     Route::controller(ManageController::class)->group(function(){
         Route::get('/admin/dashboard/basic','basicIndex')->name('basic');
         Route::post('/admin/dashboard/basic/update','basicUpdate')->name('basic.update');
@@ -72,6 +72,11 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/menu/category','index')->name('menu.category');
         Route::get('/admin/dashboard/menu/category/add','add')->name('menu.category.add');
         Route::post('/admin/dashboard/menu/category/submit','insert')->name('menu.category.insert');
+    });
+    Route::controller(MenuController::class)->group(function(){
+        Route::get('/admin/dashboard/menu','index')->name('menu');
+        Route::get('/admin/dashboard/menu/add','add')->name('menu.add');
+        Route::post('/admin/dashboard/menu/add/submit','insert')->name('menu.insert');
     });
 
 });

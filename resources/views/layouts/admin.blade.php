@@ -58,7 +58,7 @@
                             <li>
                                 <a href="#"><i class="fas fa-user-circle"></i> Menu</a>
                                 <ul>
-                                    <li><a href="{{route('basic')}}">Menu</a></li>
+                                    <li><a href="{{route('menu')}}">Menu</a></li>
                                     <li><a href="{{route('menu.category')}}">Category</a></li>
                                 </ul>
                             </li>

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'menu_id';
+    
+    public function categoryInfo(){
+        return $this->belongsTo('App\Models\MenuCategory','menu_category','menu_category_id');
+    }
 }
