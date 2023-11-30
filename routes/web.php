@@ -13,6 +13,7 @@ use App\Http\Controllers\WhyUsController;
 use App\Http\Controllers\MenuCategoryController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SpecialCategoryController;
+use App\Http\Controllers\SpecialController;
 
 
 Route::get('/', function () {
@@ -81,8 +82,13 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
     });
     Route::controller(SpecialCategoryController::class)->group(function(){
         Route::get('/admin/deshboard/special/category','index')->name('special.category');
-        Route::get('/admin/deshboard/special/add','add')->name('special.category.add');
-        Route::post('/admin/deshboard/special/add/submit','insert')->name('special.category.insert');
+        Route::get('/admin/deshboard/special/category/add','add')->name('special.category.add');
+        Route::post('/admin/deshboard/special/category/add/submit','insert')->name('special.category.insert');
+    });
+    Route::controller(SpecialController::class)->group(function(){
+        Route::get('/admin/deshboard/special','index')->name('special');
+        Route::get('/admin/deshboard/special/add','add')->name('special.add');
+        Route::post('/admin/deshboard/special/add/submit','insert')->name('special.insert');
     });
 
 });

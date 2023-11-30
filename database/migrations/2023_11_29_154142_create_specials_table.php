@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('special_name')->nullable();
             $table->string('special_details')->nullable();
             $table->string('special_image')->nullable();
+            $table->integer('special_category')->nullable();
             $table->integer('special_creator')->nullable();
             $table->integer('special_editor')->nullable();
             $table->integer('special_status')->default(1);
