@@ -48,11 +48,18 @@
                             <li><a href="{{route('admin.dashboard')}}"><i class="fas fa-home"></i> Dashboard</a></li>
                             <li><a href="{{route('admin.user')}}"><i class="fas fa-user-circle"></i> Users</a></li>
                             <li>
-                                <a href="{{route('admin.user')}}"><i class="fas fa-user-circle"></i> Manage</a>
+                                <a href="#"><i class="fas fa-user-circle"></i> Manage</a>
                                 <ul>
                                     <li><a href="{{route('basic')}}">Basic</a></li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                     <li><a href="{{route('social')}}">Social Media</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-user-circle"></i> Menu</a>
+                                <ul>
+                                    <li><a href="{{route('basic')}}">Menu</a></li>
+                                    <li><a href="{{route('menu.category')}}">Category</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('book')}}"><i class="fas fa-images"></i> Book Table</a></li>

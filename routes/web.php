@@ -10,6 +10,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\WhyUsController;
+use App\Http\Controllers\MenuCategoryController;
 
 
 Route::get('/', function () {
@@ -67,6 +68,12 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/dashboard/whyus/add','add')->name('why.add');
         Route::post('/admin/dashboard/whyus/add/submit','insert')->name('why.insert');
     });
+    Route::controller(MenuCategoryController::class)->group(function(){
+        Route::get('/admin/dashboard/menu/category','index')->name('menu.category');
+        Route::get('/admin/dashboard/menu/category/add','add')->name('menu.category.add');
+        Route::post('/admin/dashboard/menu/category/submit','insert')->name('menu.category.insert');
+    });
+
 });
 //user controller
 Route::middleware('auth', 'verified', 'role:user', 'status:active')->group(function () {
