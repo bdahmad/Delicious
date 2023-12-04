@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -15,6 +14,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SpecialCategoryController;
 use App\Http\Controllers\SpecialController;
 use App\Http\Controllers\ChefController;
+use App\Http\Controllers\ContactMessageController;
 
 
 Route::get('/', function () {
@@ -24,6 +24,7 @@ Route::get('/404', function () {
     return view('404');
 })->name('404');
 
+Route::post('/message/submit',[ContactMessageController::class, 'insert'])->name('message.insert');
 //admin controller
 Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(function () {
     Route::controller(AdminController::class)->group(function () {
@@ -95,6 +96,9 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/deshboard/chef','index')->name('chef');
         Route::get('/admin/deshboard/chef/add','add')->name('chef.add');
         Route::post('/admin/deshboard/chef/add/submit','insert')->name('chef.insert');
+    });
+    Route::controller(ContactMessageController::class)->group(function(){
+        Route::get('/admin/deshboard/messages','index')->name('messages');
     });
 
 });
