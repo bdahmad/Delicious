@@ -70,7 +70,7 @@
           <li><a class="nav-link scrollto" href="#events">Events</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -86,7 +86,7 @@
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
-          </li>
+          </li> -->
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -144,34 +144,30 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container-fluid">
-
+        @php
+          $about = App\Models\About::where('about_status',1)->firstOrFail();
+        @endphp
         <div class="row">
 
           <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("{{asset('frontend')}}/assets/img/about.jpg");'>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            <a href="{{$about->about_video}}" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
           </div>
 
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
 
             <div class="content">
-              <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h3>
+              <h3>{{$about->about_title}}</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                {{$about->about_descrip1}}
               </p>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                {{$about->about_descrip2}}
               </p>
               <ul>
-                <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                <li><i class="bx bx-check-double"></i> {{$about->about_offer1}}</li>
+                <li><i class="bx bx-check-double"></i> {{$about->about_offer2}}</li>
+                <li><i class="bx bx-check-double"></i> {{$about->about_offer3}}</li>
               </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum
-              </p>
             </div>
 
           </div>

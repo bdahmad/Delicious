@@ -15,6 +15,7 @@ use App\Http\Controllers\SpecialCategoryController;
 use App\Http\Controllers\SpecialController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\AboutController;
 
 
 Route::get('/', function () {
@@ -99,6 +100,10 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
     });
     Route::controller(ContactMessageController::class)->group(function(){
         Route::get('/admin/deshboard/messages','index')->name('messages');
+    });
+    Route::controller(AboutController::class)->group(function(){
+        Route::get('/admin/deshboard/about','index')->name('about.edit');
+        Route::get('/admin/deshboard/about/update','update')->name('about.update');
     });
 
 });

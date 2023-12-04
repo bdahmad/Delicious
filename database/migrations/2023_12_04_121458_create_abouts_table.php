@@ -12,7 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('abouts', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements("about_id");
+            $table->string("about_title")->nullable();
+            $table->string("about_descrip1")->nullable();
+            $table->string("about_descrip2")->nullable();
+            $table->string("about_offer1")->nullable();
+            $table->string("about_offer2")->nullable();
+            $table->string("about_offer3")->nullable();
+            $table->string("about_video")->nullable();
+            $table->integer("about_status")->default(1);
             $table->timestamps();
         });
     }

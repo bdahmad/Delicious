@@ -77,8 +77,13 @@ class SetUpSeeder extends Seeder
             'social_facebook' => 'www.facebook.com/ad.ahmad.0',
             'social_instagram' => 'www.instagram.com/ad/corporation'
         ]);
-        // DB::table('')->insert([
-
-        // ]);
+        DB::table('abouts')->insert([
+            'about_title' => 'delicilous food and juice bar',
+            'about_descrip1' => 'delicilous food and juice bar',
+            'about_offer1' => 'delicilous food and juice bar',
+            'about_offer2' => 'delicilous food and juice bar',
+            'about_offer3' => 'delicilous food and juice bar',
+            'about_video' => 'https://www.youtube.com/watch?v=WT1IjEQ26NM',
+        ]);
     }
 }
