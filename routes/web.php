@@ -14,6 +14,7 @@ use App\Http\Controllers\MenuCategoryController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SpecialCategoryController;
 use App\Http\Controllers\SpecialController;
+use App\Http\Controllers\ChefController;
 
 
 Route::get('/', function () {
@@ -89,6 +90,11 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/deshboard/special','index')->name('special');
         Route::get('/admin/deshboard/special/add','add')->name('special.add');
         Route::post('/admin/deshboard/special/add/submit','insert')->name('special.insert');
+    });
+    Route::controller(ChefController::class)->group(function(){
+        Route::get('/admin/deshboard/chef','index')->name('chef');
+        Route::get('/admin/deshboard/chef/add','add')->name('chef.add');
+        Route::post('/admin/deshboard/chef/add/submit','insert')->name('chef.insert');
     });
 
 });

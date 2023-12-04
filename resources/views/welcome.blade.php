@@ -428,54 +428,26 @@
         </div>
 
         <div class="row">
-
+          @php 
+            $chef = App\Models\Chef::where('chef_status',1)->get();
+          @endphp
+          @foreach($chef as $data)
           <div class="col-lg-4 col-md-6">
             <div class="member">
-              <div class="pic"><img src="{{asset('frontend')}}/assets/img/chefs/chefs-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{asset('uploads/chef/'.$data->chef_image)}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Master Chef</span>
+                <h4>{{$data->chef_name}}</h4>
+                <span>{{$data->chef_designation}}</span>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="{{$data->chef_twitter}}"><i class="bi bi-twitter"></i></a>
+                  <a href="{{$data->chef_facebook}}"><i class="bi bi-facebook"></i></a>
+                  <a href="{{$data->chef_instagram}}"><i class="bi bi-instagram"></i></a>
+                  <a href="{{$data->chef_linkedin}}"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="{{asset('frontend')}}/assets/img/chefs/chefs-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Patissier</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="{{asset('frontend')}}/assets/img/chefs/chefs-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Cook</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
 
         </div>
 

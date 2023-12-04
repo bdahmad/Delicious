@@ -47,6 +47,7 @@
                         <ul>
                             <li><a href="{{route('admin.dashboard')}}"><i class="fas fa-home"></i> Dashboard</a></li>
                             <li><a href="{{route('admin.user')}}"><i class="fas fa-user-circle"></i> Users</a></li>
+                            <li><a href="{{route('chef')}}"><i class="fas fa-user-circle"></i> Chef</a></li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle"></i> Manage</a>
                                 <ul>
