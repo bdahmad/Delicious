@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>User Panel</title>
+    <title>Delicious | User Panel</title>
     <link rel="stylesheet" href="{{asset('admin')}}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('admin')}}/css/all.min.css">
     <link rel="stylesheet" href="{{asset('admin')}}/css/style.css">
@@ -24,7 +24,7 @@
                             {{Auth::user()->name}}
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-tie"></i> My Profile</a></li>
+                            <li><a class="dropdown-item" href="{{route('user.profile')}}"><i class="fas fa-user-tie"></i> My Profile</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Manage Account</a></li>
                             <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                         </ul>

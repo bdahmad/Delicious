@@ -111,6 +111,7 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
 Route::middleware('auth', 'verified', 'role:user', 'status:active')->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
+        Route::get('/dashboard/profile', 'profile')->name('user.profile');
         Route::get('/use/logout', 'userLogout')->name('user.logout');
     });
 });
