@@ -105,6 +105,10 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::get('/admin/deshboard/about','index')->name('about.edit');
         Route::get('/admin/deshboard/about/update','update')->name('about.update');
     });
+    Route::controller(ProfileController::class)->group(function(){
+        Route::get('/admin/deshboard/profile','index')->name('profile.edit');
+        Route::post('/admin/deshboard/profile/update','update')->name('profile.update.admin');
+    });
 
 });
 //user controller
