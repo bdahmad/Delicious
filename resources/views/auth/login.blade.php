@@ -27,7 +27,7 @@
                                             <label>Email<span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-text"><i class="fas fa-user"></i></div>
-                                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email" value="{{old('email')}}">
+                                                <input type="text" name="login" id="login" class="form-control" placeholder="Enter Email Or Username" value="{{old('login')}}">
                                             </div>
                                         </div>
 
