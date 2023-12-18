@@ -20,7 +20,11 @@
                 <div class="col-md-3 top_right_menu text-end">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle top_right_btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{asset('uploads/'.Auth::user()->photo)}}" class="img-fluid">
+                            @if(Auth::user()->photo != '')
+                                <img src="{{asset('uploads/user/'.Auth::user()->photo)}}" alt="" id="img"  height=200px />
+                            @else
+                                <img src="{{asset('admin/images/avatar.jpg')}}" alt="" id="img"  height=200px />
+                            @endif
                             {{Auth::user()->name}}
                         </button>
                         <ul class="dropdown-menu">
@@ -39,7 +43,11 @@
             <div class="row">
                 <div class="col-md-2 sidebar_part">
                     <div class="user_part">
-                        <img class="" src="{{asset('admin')}}/images/avatar.png" alt="avatar" />
+                        @if(Auth::user()->photo != '')
+                            <img src="{{asset('uploads/user/'.Auth::user()->photo)}}" alt="" id="img"  height=200px />
+                        @else
+                            <img src="{{asset('admin/images/avatar.jpg')}}" alt="" id="img"  height=200px />
+                        @endif
                         <h5>{{Auth::user()->name}}</h5>
                         <p><i class="fas fa-circle"></i> Online</p>
                     </div>

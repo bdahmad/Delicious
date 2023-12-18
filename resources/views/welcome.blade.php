@@ -56,7 +56,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div class="logo me-auto">
-        <h1><a href="index.html">Delicious</a></h1>
+        <h1><a href="{{route('front')}}">Delicious</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="{{asset('frontend')}}/assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>

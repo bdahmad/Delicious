@@ -12,7 +12,8 @@
     </div>
     <div class="row">
         <div class="col-md-12 ">
-            <form method="" action="">
+            <form method="post" action="{{route('user.profile.update')}}" enctype="multipart/form-data">
+              @csrf
                 <div class="card mb-3">
                   <div class="card-header">
                     <div class="row">
@@ -28,41 +29,40 @@
                       <div class="row mb-3">
                         <label class="col-sm-3 col-form-label col_form_label">Name<span class="req_star">*</span>:</label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control form_control" id="" name="" value="{{Auth::user()->name}}">
+                          <input type="text" class="form-control form_control" id="" name="name" value="{{Auth::user()->name}}">
                         </div>
+                        <input type="hidden" name="id" value="{{Auth::user()->id}}">
                       </div>
                       <div class="row mb-3">
                         <label class="col-sm-3 col-form-label col_form_label">Phone:</label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control form_control" id="" name="" value="{{Auth::user()->phone}}">
+                          <input type="text" class="form-control form_control" id="" name="phone" value="{{Auth::user()->phone}}">
                         </div>
                       </div>
                       <div class="row mb-3">
                         <label class="col-sm-3 col-form-label col_form_label">Email<span class="req_star">*</span>:</label>
                         <div class="col-sm-7">
-                          <input type="email" class="form-control form_control" id="" name="" value="{{Auth::user()->email}}">
+                          <input type="email" class="form-control form_control" id="" name="email" value="{{Auth::user()->email}}">
                         </div>
                       </div>
                       <div class="row mb-3">
                         <label class="col-sm-3 col-form-label col_form_label">Username<span class="req_star">*</span>:</label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control form_control" id="" name="" value="{{Auth::user()->username}}">
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label col_form_label">User Role<span class="req_star">*</span>:</label>
-                        <div class="col-sm-4">
-                          <select class="form-control form_control" id="" name="">
-                            <option>Select Role</option>
-                            <option value="">Superadmin</option>
-                            <option value="">Admin</option>
-                          </select>
+                          <input type="text" class="form-control form_control" id="" name=""  value="{{Auth::user()->username}}" disabled>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <label class="col-sm-3 col-form-label col_form_label">Photo:</label>
                         <div class="col-sm-4">
-                          <input type="file" class="form-control form_control" id="" name="">
+                          <input type="file" class="form-control form_control" onchange="document.getElementById('img').src = window.URL.createObjectURL(this.files[0])" name="photo" >
+                        </div>
+                        <div class="col-sm-3">
+                          @if(Auth::user()->photo != '')
+                            <!-- $img = Auth::user()->photo; -->
+                             <img src="{{asset('uploads/user/'.Auth::user()->photo)}}" alt="" id="img"  height=200px />
+                          @else
+                            <img src="{{asset('admin/images/avatar.jpg')}}" alt="" id="img"  height=200px />
+                          @endif
                         </div>
                       </div>
                   </div>

@@ -49,10 +49,6 @@ Route::middleware('auth', 'verified', 'role:admin', 'status:active')->group(func
         Route::post('/admin/dashboard/social/update','socialUpdate')->name('social.update');
 
     });
-    Route::controller(BookController::class)->group(function(){
-        Route::get('/admin/dashboard/book','index')->name('book');
-        Route::post('/admin/dashboard/book/submit','insert')->name('book.insert');
-    });
     Route::controller(EventController::class)->group(function(){
         Route::get('/admin/dashboard/event','index')->name('event');
         Route::get('/admin/dashboard/event/add','add')->name('event.add');
@@ -116,7 +112,12 @@ Route::middleware('auth', 'verified', 'role:user', 'status:active')->group(funct
     Route::controller(UserController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
         Route::get('/dashboard/profile', 'profile')->name('user.profile');
-        Route::get('/use/logout', 'userLogout')->name('user.logout');
+        Route::post('/dashboard/profile/update', 'update')->name('user.profile.update');
+        Route::get('/user/logout', 'userLogout')->name('user.logout');
+    });
+    Route::controller(BookController::class)->group(function(){
+        Route::get('/admin/dashboard/book','index')->name('book');
+        Route::post('/admin/dashboard/book/submit','insert')->name('book.insert');
     });
 });
 
